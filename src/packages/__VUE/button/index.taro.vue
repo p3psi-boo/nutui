@@ -2,12 +2,7 @@
   <button :class="classes" :style="getStyle" @click="handleClick">
     <view class="nut-button__warp">
       <nut-icon class="nut-icon-loading" v-if="loading"></nut-icon>
-      <nut-icon
-        v-if="icon && !loading"
-        :name="icon"
-        :class-prefix="iconClassPrefix"
-        :font-class-name="iconFontClassName"
-      ></nut-icon>
+      <nut-icon :class="icon" v-if="icon && !loading" :name="icon"></nut-icon>
       <view :class="{ text: icon || loading }" v-if="$slots.default">
         <slot></slot>
       </view>
@@ -60,14 +55,6 @@ export default create({
     icon: {
       type: String,
       default: ''
-    },
-    iconClassPrefix: {
-      type: String,
-      default: 'nut-icon'
-    },
-    iconFontClassName: {
-      type: String,
-      default: 'nutui-iconfont'
     }
   },
   emits: ['click'],
